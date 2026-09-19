@@ -18,7 +18,7 @@ Grab the installer for your OS from the **[latest release](https://github.com/Sh
 
 No prerequisites — no Python, Node, or Docker. The installer bundles everything nuskPM needs.
 
-> **First launch warning?** The installers aren't code-signed yet, so Windows SmartScreen or macOS Gatekeeper may warn you the first time. On Windows choose **More info → Run anyway**; on macOS right-click the app and choose **Open**.
+> **Windows blocks the installer?** The installers aren't code-signed yet. If you get a SmartScreen warning, choose **More info → Run anyway**. If **Smart App Control** is on, Windows blocks unsigned apps outright with no "Run anyway" option — in that case either turn Smart App Control off (Windows Security → App & browser control → Smart App Control settings; Microsoft has historically made turning it off a one-way switch, so check the current behaviour first), or run nuskPM from the self-hosted Docker deployment instead. On macOS, right-click the app and choose **Open** the first time.
 
 ## Why this exists
 
