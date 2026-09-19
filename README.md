@@ -31,10 +31,27 @@ The full nuskPM is a self-hosted web application, which is a great fit for a tea
 ## How the desktop app works
 
 - **Launch it and your browser opens.** nuskPM runs a small local server and opens the interface in your default browser. The first launch walks you through creating an administrator account.
-- **System tray icon (Windows & macOS).** A tray icon shows that nuskPM is running, even with no browser tab open. Click it to open nuskPM, stop, start, or restart the server, check for updates, or quit. On Linux, nuskPM runs in a terminal window instead — keep it open while you work and close it to stop nuskPM.
+- **System tray control panel (Windows & macOS).** nuskPM lives in your system tray, even with no browser tab open — see [The tray menu](#the-tray-menu) below. On Linux, nuskPM runs in a terminal window instead — keep it open while you work and close it to stop nuskPM.
 - **Your data stays yours.** Everything lives in a per-user folder (see below), and uninstalling never deletes it.
 - **Local only.** nuskPM listens on `127.0.0.1` (port `58731`, or the next free one), so it isn't reachable from other machines on your network.
 - **Update notifications.** nuskPM checks this page for new releases and tells you when one is available. Updating is just running the newer installer over the top — it never touches your existing projects.
+
+### The tray menu
+
+Right-click the nuskPM icon (double-click opens the app). On Windows it may be hidden under the `^` overflow arrow — drag it onto the taskbar to keep it visible.
+
+| Menu item | What it does |
+|---|---|
+| **nuskPM vX.Y.Z** / **● Running on http://127.0.0.1:58731** | Live version and status. |
+| **Open nuskPM** | Opens the app in your browser. |
+| **Stop nuskPM** / **Start nuskPM** | Stops or starts the local server. Your data is untouched. |
+| **Restart nuskPM** | Stops and starts the server again. |
+| **Update to vX.Y.Z** | Appears when a newer release exists. On Windows it downloads the installer, launches it and closes nuskPM so it can be replaced; on macOS/Linux it opens the release page. |
+| **Check for Updates** | Checks for a newer release right now (nuskPM also checks at startup). |
+| **Application Details** | Version, address, data folder, database file and log file at a glance. |
+| **View Logs** | Opens `nuskpm.log` — startup messages and any errors. |
+| **Open Data Folder** | Opens the folder holding your database and logs. |
+| **Quit nuskPM** | Stops the server and removes the tray icon. |
 
 > Want one shared instance for the whole team? The desktop app is for individuals and evaluation. For a shared team server, run the self-hosted (Docker) deployment of nuskPM instead.
 
@@ -93,14 +110,14 @@ The folder holds your database (`nuskpm.db`) and a generated secret key. To back
 
 ## Updating and uninstalling
 
-- **Update:** download the newer installer from the [releases page](https://github.com/Shahbazhk/nuskpm-releases/releases/latest) and run it. Each release lists what changed. Your data is untouched.
+- **Update:** choose **Update to vX.Y.Z** from the tray menu, or download the newer installer from the [releases page](https://github.com/Shahbazhk/nuskpm-releases/releases/latest) and run it. Each release lists what changed. Your data is untouched.
 - **Uninstall:** use your OS's normal uninstall. The data folder above is left in place on purpose; delete it yourself if you want everything gone.
 
 ## Troubleshooting
 
 **nuskPM doesn't seem to open.** On Windows/macOS look for the nuskPM icon in the system tray (on Windows it may be under the `^` overflow arrow) and choose **Open nuskPM**. You can also browse to `http://127.0.0.1:58731/` directly.
 
-**Something is wrong at startup.** Check the log files in your data folder (see above): `nuskpm.log` records startup output and `crash.log` is written if nuskPM fails to start. Include them when you report an issue.
+**Something is wrong at startup.** Choose **View Logs** from the tray menu, or open the log files in your data folder (see above): `nuskpm.log` records startup output and errors (it's trimmed automatically), and `crash.log` is written if nuskPM fails to start. Include them when you report an issue.
 
 **Fully quit nuskPM.** Use **Quit nuskPM** from the tray icon. If it's unresponsive, end the `nuskPM` process in Task Manager (Windows) or Activity Monitor (macOS) before reinstalling.
 
